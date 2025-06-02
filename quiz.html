@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест о музыке РФ</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Тест: Развитие музыки в РФ</h1>
+        
+        <form id="music-quiz">
+            <div class="question">
+                <p>1. Какой жанр стал особенно популярен в России в 2000-х годах?</p>
+                <label><input type="radio" name="q1" value="a"> Рок</label>
+                <label><input type="radio" name="q1" value="b"> Поп</label>
+                <label><input type="radio" name="q1" value="c"> Русский рэп</label>
+            </div>
+
+            <div class="question">
+                <p>2. Какой из этих фестивалей является одним из самых известных в России?</p>
+                <label><input type="radio" name="q2" value="a"> Усадьба Jazz</label>
+                <label><input type="radio" name="q2" value="b"> Coachella</label>
+                <label><input type="radio" name="q2" value="c"> Вудсток</label>
+            </div>
+
+            <div class="question">
+                <p>3. Что характерно для традиционной русской музыки?</p>
+                <label><input type="radio" name="q3" value="a"> Частушки</label>
+                <label><input type="radio" name="q3" value="b"> Электронные биты</label>
+                <label><input type="radio" name="q3" value="c"> Авто-тюн</label>
+            </div>
+
+            <div class="question">
+                <p>4. Какой инструмент часто ассоциируется с русской народной музыкой?</p>
+                <label><input type="radio" name="q4" value="a"> Балалайка</label>
+                <label><input type="radio" name="q4" value="b"> Электрогитара</label>
+                <label><input type="radio" name="q4" value="c"> Синтезатор</label>
+            </div>
+
+            <div class="question">
+                <p>5. Какой период стал временем расцвета русского рока?</p>
+                <label><input type="radio" name="q5" value="a"> 1960-е</label>
+                <label><input type="radio" name="q5" value="b"> 1980-е</label>
+                <label><input type="radio" name="q5" value="c"> 2000-е</label>
+            </div>
+
+            <button type="button" id="submit-btn">Проверить ответы</button>
+        </form>
+
+        <div id="results" class="hidden">
+            <h2>Ваш результат: <span id="score">0</span>/5</h2>
+            <p id="result-text"></p>
+        </div>
+
+        <a href="index.html" class="back-button">Вернуться на главную</a>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const answers = {
+                q1: 'c',
+                q2: 'a',
+                q3: 'a',
+                q4: 'a',
+                q5: 'b'
+            };
+            
+            let score = 0;
+            
+            for (let i = 1; i <= 5; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+            
+            document.getElementById('score').textContent = score;
+            const resultText = document.getElementById('result-text');
+            
+            if (score === 5) {
+                resultText.textContent = 'Отлично! Вы настоящий знаток русской музыки!';
+            } else if (score >= 3) {
+                resultText.textContent = 'Хорошо, но есть куда расти!';
+            } else {
+                resultText.textContent = 'Попробуйте еще раз или изучите материалы на главной странице!';
+            }
+            
+            document.getElementById('results').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Развитие музыки в РФ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Липкая реклама -->
+   <a href="https://afisha.yandex.ru/kirov/concert" target="_blank"> <div class="sticky-ad">
+        <span>Концерты по всей России! Скидка 20% сегодня!</span>
+        <span class="fake-close">✕</span> 
+
+    </div>
+    </a>  
+
+    <header>
+        <h1>Развитие музыки в Российской Федерации</h1>
+    </header>
+
+    <main>
+        <!-- Блок с видео -->
+        <section class="video-section">
+            <h2>История российской музыки</h2>
+            <video controls>
+                <source src="video/1.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </section>
+
+        <!-- Контент в Grid сетке -->
+        <section class="grid-container">
+            <div class="grid-item">
+                <img src="images/russian-music.jpg" alt="Русская музыка">
+                <h3>Традиционная музыка</h3>
+                <p>Русская народная музыка имеет богатую историю, включая частушки, былины и духовные стихи.</p>
+            </div>
+            <div class="grid-item">
+                <img src="images/concert.jpg" alt="Современный концерт">
+                <h3>Современная сцена</h3>
+                <p>В 2000-х годах появилось множество новых жанров и исполнителей, таких как...</p>
+            </div>
+            <div class="grid-item">
+                <img src="images/music-evolution.gif" alt="Эволюция музыки">
+                <h3>Популярные фестивали</h3>
+                <p>Наиболее известные музыкальные фестивали: Пикник "Афиши", Усадьба Jazz, Park Live.</p>
+            </div>
+        </section>
+
+        <!-- Рекламный блок с фейк-крестиком -->
+        <div class="ad-block">
+            <span class="fake-close">✕</span>
+            <a href="https://afisha.yandex.ru/kirov/concert" target="_blank"><p>Специальное предложение! Купите билеты на концерт со скидкой 30%!</p></a>
+        </div>
+    </main>
+
+    <!-- Кнопка перехода на тест -->
+    <div class="quiz-button-container">
+        <a href="quiz.html" class="quiz-button">Пройти тест о музыке</a>
+    </div>
+
+    <script>
+        // Обработка кликов по фейковым крестикам
+        document.querySelectorAll('.fake-close').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // В реальном сайте здесь был бы переход на рекламный сайт
+                alert('Реклама закрыта! (но в реальном сайте был бы переход)');
+                this.parentElement.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
